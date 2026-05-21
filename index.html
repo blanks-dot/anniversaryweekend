@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary & Josh · Six Years · Santa Monica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EDDF;
+    --cream-deep: #EFE4D0;
+    --ivory: #FAF6EE;
+    --wine: #4A1D2E;
+    --wine-deep: #2E1220;
+    --terracotta: #C95F3F;
+    --terracotta-light: #E08A6E;
+    --rose: #D8A39F;
+    --gold: #C99857;
+    --sage: #8B9B7E;
+    --ink: #2A1A22;
+    --paper: #F9F2E3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Paper grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding: 3rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(201, 152, 87, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(201, 95, 63, 0.12) 0%, transparent 50%),
+      var(--cream);
+    overflow: hidden;
+  }
+
+  .hero-corner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--wine);
+    opacity: 0.7;
+  }
+
+  .hero-corner .left, .hero-corner .right {
+    line-height: 1.8;
+  }
+  .hero-corner .right { text-align: right; }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 2rem;
+    animation: fadeUp 1s ease-out 0.2s both;
+  }
+
+  .hero-tag::before, .hero-tag::after {
+    content: '✦';
+    margin: 0 1rem;
+    color: var(--gold);
+  }
+
+  .hero-names {
+    font-family: 'Italiana', serif;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    color: var(--wine);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    animation: fadeUp 1.2s ease-out 0.4s both;
+  }
+
+  .hero-names .amp {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+    font-size: 0.85em;
+    display: inline-block;
+    transform: translateY(-0.05em);
+    padding: 0 0.1em;
+  }
+
+  .hero-six {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--ink);
+    margin-top: 2rem;
+    letter-spacing: 0.02em;
+    animation: fadeUp 1.2s ease-out 0.7s both;
+  }
+
+  .hero-six em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--wine);
+    border-bottom: 1px dotted var(--terracotta);
+    padding-bottom: 2px;
+  }
+
+  .hero-dates {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeUp 1.2s ease-out 0.9s both;
+  }
+
+  .hero-dates .dot {
+    width: 4px;
+    height: 4px;
+    background: var(--terracotta);
+    border-radius: 50%;
+  }
+
+  .hero-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(400px, 70vw, 700px);
+    height: clamp(400px, 70vw, 700px);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    animation: spin 80s linear infinite;
+  }
+  .hero-sun::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border: 1px solid var(--terracotta);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .hero-center > * { position: relative; z-index: 1; }
+
+  .scroll-cue {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--wine);
+    opacity: 0.5;
+    animation: bob 2.5s ease-in-out infinite;
+  }
+  .scroll-cue::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--wine);
+    margin: 1rem auto 0;
+    opacity: 0.4;
+  }
+
+  /* ===== LOVE LETTER INTRO ===== */
+  .letter {
+    padding: 8rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .letter-mark {
+    font-family: 'Italiana', serif;
+    color: var(--terracotta);
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .letter p {
+    font-family: 'Fraunces', serif;
+    font-weight: 350;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .letter p em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  .letter-sign {
+    margin-top: 3rem;
+    font-family: 'Italiana', serif;
+    color: var(--wine);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .letter-sign small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-top: 0.5rem;
+  }
+
+  /* ===== DAY SECTIONS ===== */
+  .day {
+    padding: 6rem 2rem;
+    position: relative;
+  }
+  .day.friday   { background: linear-gradient(180deg, var(--cream) 0%, #F0E0CC 100%); }
+  .day.saturday { background: linear-gradient(180deg, #F0E0CC 0%, var(--cream-deep) 100%); }
+  .day.sunday   { background: linear-gradient(180deg, var(--cream-deep) 0%, var(--paper) 100%); }
+
+  .day-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .day-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(74, 29, 46, 0.15);
+    margin-bottom: 4rem;
+  }
+
+  .day-number {
+    font-family: 'Italiana', serif;
+    font-size: clamp(5rem, 12vw, 9rem);
+    color: var(--terracotta);
+    line-height: 0.85;
+    opacity: 0.85;
+  }
+
+  .day-title-wrap {
+    flex: 1;
+  }
+
+  .day-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+
+  .day-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--wine);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .day-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+
+  .day-date {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--wine);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .day-date strong {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .moment {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 2.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px dashed rgba(74, 29, 46, 0.12);
+    transition: background 0.4s ease;
+  }
+  .moment:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+  .moment:last-child { border-bottom: none; }
+
+  .moment-time {
+    font-family: 'Italiana', serif;
+    font-size: 1.6rem;
+    color: var(--wine);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    padding-top: 0.2rem;
+  }
+  .moment-time small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+
+  .moment-body { padding-top: 0.15rem; }
+
+  .moment-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--wine);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .moment-headline .heart {
+    color: var(--terracotta);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .moment-where {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+  }
+  .moment-where a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .moment-where a:hover { border-color: var(--terracotta); }
+
+  .moment-detail {
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.6;
+    opacity: 0.88;
+  }
+
+  .moment-detail em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  .moment-tags {
+    margin-top: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(74, 29, 46, 0.25);
+    border-radius: 999px;
+    color: var(--wine);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .tag.hot { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+  .tag.dream { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+  .tag.gold { background: var(--gold); color: var(--wine); border-color: var(--gold); }
+
+  /* Special anniversary highlight */
+  .moment.highlight {
+    background: linear-gradient(135deg, rgba(201, 95, 63, 0.08), rgba(201, 152, 87, 0.05));
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    margin: 1rem -1.5rem;
+    border: 1px solid rgba(201, 95, 63, 0.15);
+  }
+  .moment.highlight::before {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ===== DINNER ALTERNATIVES ===== */
+  .alternatives {
+    background: var(--wine);
+    color: var(--cream);
+    padding: 5rem 2rem;
+    position: relative;
+  }
+
+  .alternatives-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .alt-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .alt-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .alt-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cream);
+  }
+  .alt-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--rose);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .alt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 3rem;
+  }
+
+  .alt-card {
+    background: rgba(245, 237, 223, 0.06);
+    border: 1px solid rgba(245, 237, 223, 0.2);
+    padding: 2rem 1.8rem;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.4s ease, background 0.4s ease;
+  }
+  .alt-card:hover {
+    transform: translateY(-4px);
+    background: rgba(245, 237, 223, 0.1);
+  }
+
+  .alt-rank {
+    position: absolute;
+    top: -12px;
+    left: 1.5rem;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .alt-rank.top { background: var(--gold); color: var(--wine); }
+
+  .alt-name {
+    font-family: 'Italiana', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  .alt-meta {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+  .alt-desc {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    color: var(--cream);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .alt-cta {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  .alt-cta:hover { color: var(--terracotta-light); border-color: var(--terracotta-light); }
+
+  /* ===== CHECKLIST ===== */
+  .checklist {
+    padding: 6rem 2rem;
+    background: var(--paper);
+  }
+  .checklist-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .check-eyebrow {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+  .check-title {
+    text-align: center;
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--wine);
+    margin-bottom: 3rem;
+  }
+
+  .check-list {
+    list-style: none;
+  }
+  .check-item {
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.4rem 1.2rem;
+    border-bottom: 1px solid rgba(74, 29, 46, 0.1);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .check-item:hover { background: rgba(201, 95, 63, 0.05); }
+
+  .check-box {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--wine);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    background: transparent;
+  }
+  .check-item.done .check-box {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+  .check-item.done .check-box::after {
+    content: '✓';
+    color: var(--cream);
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .check-item.done .check-text { text-decoration: line-through; opacity: 0.5; }
+
+  .check-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--ink);
+    transition: opacity 0.3s;
+  }
+  .check-text small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    color: var(--terracotta);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+  .check-phone {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    color: var(--wine);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .check-phone a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--terracotta);
+  }
+
+  /* ===== PRACTICAL CARDS ===== */
+  .practical {
+    padding: 6rem 2rem;
+    background: var(--cream);
+  }
+  .practical-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .practical-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(74, 29, 46, 0.12);
+    padding: 1.8rem;
+    border-radius: 6px;
+  }
+  .practical-card h3 {
+    font-family: 'Italiana', serif;
+    font-size: 1.4rem;
+    color: var(--wine);
+    margin-bottom: 0.8rem;
+  }
+  .practical-card .label {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .practical-card p {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .practical-card .wifi {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--wine);
+    background: rgba(201, 95, 63, 0.08);
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    display: inline-block;
+    font-size: 0.9rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .ending {
+    padding: 8rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--wine-deep) 100%);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+  }
+  .ending-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .ending-mark {
+    font-family: 'Italiana', serif;
+    color: var(--gold);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  .ending h2 {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  .ending p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--rose);
+    line-height: 1.7;
+  }
+  .ending-sig {
+    margin-top: 3rem;
+    font-family: 'Italiana', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+  }
+  .ending-sig small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 0.5rem;
+    opacity: 0.7;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(6px); opacity: 0.8; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 720px) {
+    .hero { padding: 2rem 1.5rem 3rem; }
+    .hero-corner { flex-direction: column; gap: 1rem; }
+    .hero-corner .right { text-align: left; }
+
+    .letter { padding: 5rem 1.5rem; }
+
+    .day { padding: 4rem 1.5rem; }
+    .day-header {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      text-align: left;
+    }
+    .day-date { text-align: left; }
+
+    .moment {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 1.4rem 0;
+    }
+    .moment-time {
+      font-size: 1.3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+    .moment-time small { margin-top: 0; }
+
+    .moment.highlight { margin: 1rem 0; padding: 1.5rem 1rem; }
+
+    .alt-grid { grid-template-columns: 1fr; }
+
+    .check-item {
+      grid-template-columns: 36px 1fr;
+      gap: 1rem;
+    }
+    .check-phone {
+      grid-column: 2;
+      font-size: 0.8rem;
+    }
+
+    .practical { padding: 4rem 1.5rem; }
+  }
+
+  /* Print */
+  @media print {
+    body::before, .hero-sun { display: none; }
+    .day, .alternatives, .checklist, .practical, .ending {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-corner">
+    <div class="left">
+      An Anniversary<br>
+      Weekend Itinerary
+    </div>
+    <div class="right">
+      No. VI<br>
+      Santa Monica
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <div class="hero-sun"></div>
+    <div class="hero-tag">Six Years Together</div>
+    <h1 class="hero-names">Mary<br><span class="amp">&</span><br>Josh</h1>
+    <p class="hero-six">
+      A long weekend by the Pacific to celebrate <em>six years together</em><br>
+      &mdash; and the wedding that's coming next.
+    </p>
+    <div class="hero-dates">
+      <span>May 22</span>
+      <span class="dot"></span>
+      <span>May 23</span>
+      <span class="dot"></span>
+      <span>May 24</span>
+      <span class="dot"></span>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Begin</div>
+</section>
+
+<!-- ===== LOVE LETTER INTRO ===== -->
+<section class="letter">
+  <div class="letter-mark">&mdash;</div>
+  <p>
+    Three days at the edge of the country. A studio on <em>Euclid Street</em>, a borrowed car,
+    a long run on the sand, a dress fitting for the wedding that's coming, a quiet table somewhere
+    with handmade pasta and candlelight, a sauna in the morning, the Venice canals at golden hour.
+  </p>
+  <p>
+    Six years together. One wedding ahead. <em>This weekend sits right in the middle of those
+    two things</em> &mdash; the long courtship and the rest of your life. Below is the plan, loose
+    enough to live in, tight enough to keep you fed and on time. Tap any restaurant to call.
+    Cross off the bookings as you go.
+  </p>
+  <div class="letter-sign">
+    For Mary &amp; Josh<br>
+    <small>Six down &mdash; and forever to go</small>
+  </div>
+</section>
+
+<!-- ===== FRIDAY ===== -->
+<section class="day friday" id="friday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day One</div>
+        <h2 class="day-title">The <em>Arrival</em></h2>
+      </div>
+      <div class="day-date">Friday<strong>22 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">4:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Wheels down at LAX</h3>
+          <div class="moment-where">Delta 1715 · SFO → LAX</div>
+          <p class="moment-detail">
+            Grab the rental keys and aim the car west. Santa Monica is about twenty-five minutes
+            in Friday traffic. Hannah's apartment is on the third floor.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">land</span>
+            <span class="tag">drive</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">5:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Settle into Euclid Street</h3>
+          <div class="moment-where">935 Euclid St, Apt 3 · Santa Monica</div>
+          <p class="moment-detail">
+            Drop the bags, open the windows, change into running clothes.
+            Wi-fi is <em>LePlage2025</em> with the password Hannah gave you. Take a breath &mdash; you made it.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A four-mile run, beachside <span class="heart">&mdash; together</span></h3>
+          <div class="moment-where">Santa Monica Pier → Venice → Back</div>
+          <p class="moment-detail">
+            Sunset is at 7:50pm. You'll have light the whole way and a sky that performs
+            for you on the return. <em>This is your first hour of the trip &mdash; let it be slow.</em>
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">active</span>
+            <span class="tag gold">golden hour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">7:45 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Sugarfish for the sushi night-in</h3>
+          <div class="moment-where">
+            <a href="tel:+13103933338">Sugarfish · 1345 2nd St · 310.393.3338</a>
+          </div>
+          <p class="moment-detail">
+            Order the <em>Trust Me</em> set for two, add the toro hand roll, a salmon hand roll,
+            and salmon eggs. Pickup is faster than delivery and the shop is six minutes away.
+            Open a bottle while you wait.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">cozy</span>
+            <span class="tag">low-effort</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">8:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Sushi, wine, edibles, a comedy show</h3>
+          <div class="moment-where">Home · Laptop · Candles</div>
+          <p class="moment-detail">
+            No TV in the apartment &mdash; cue up the laptop. Three picks worth your evening:
+            <em>John Mulaney: Baby J</em> (Netflix), <em>Nate Bargatze: Hello World</em> (Prime),
+            or <em>Ali Wong: Single Lady</em> (Netflix). Dim the lights. This is the easy part.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">nest</span>
+            <span class="tag">romantic</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SATURDAY ===== -->
+<section class="day saturday" id="saturday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day Two</div>
+        <h2 class="day-title">The <em>Main Event</em></h2>
+      </div>
+      <div class="day-date">Saturday<strong>23 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">8:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Long run on the strand</h3>
+          <div class="moment-where">SM Pier → Venice → Marina del Rey</div>
+          <p class="moment-detail">
+            Eight-ish miles if you're feeling it. The path is flat and beautiful and almost
+            entirely yours that early. Bring water.
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">active</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">11:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Brunch &amp; wedding planning <span class="heart">— side by side</span></h3>
+          <div class="moment-where">
+            <a href="tel:+13109813004">The Butcher's Daughter · Abbot Kinney · 310.981.3004</a>
+          </div>
+          <p class="moment-detail">
+            Hannah's pick and the right one. Plant-filled, slow-paced, perfect for spreading
+            a notebook on the table. Order the <em>lemon waffles</em>, a matcha, and the avocado
+            toast. Big questions for the notebook: guest list anchors, three words for the day,
+            vows or no vows, must-haves vs. nice-to-haves.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">brunch</span>
+            <span class="tag dream">your wedding</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">12:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Wander Abbot Kinney</h3>
+          <div class="moment-where">Aviator Nation · Burro · General Store</div>
+          <p class="moment-detail">
+            One of the prettiest stretches in LA. Window-shop, grab a second coffee, let it
+            be aimless. You'll see it again on Sunday.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">1:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Couples massage</h3>
+          <div class="moment-where">
+            <a href="tel:+13103994747">Raven Spa · 208 Pier Ave · 310.399.4747</a>
+          </div>
+          <p class="moment-detail">
+            Sixty-minute couples Swedish. Hidden gem on Pier &amp; Main, surprisingly reasonable
+            for the area, post-massage tea and fruit. <em>Book this immediately.</em>
+            Backup: Tikkun Holistic on 4th Street.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">reset</span>
+            <span class="tag dream">romantic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">3:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Hit the road for Huntington Beach</h3>
+          <div class="moment-where">405 South · ~75 minutes</div>
+          <p class="moment-detail">
+            <em>Do not leave later than this.</em> Saturday afternoon traffic on the 405 is the
+            one thing that can blow up the day. Play the wedding playlist. Hold hands at the lights.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">4:45 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">The wedding dress fitting ✦</h3>
+          <div class="moment-where">
+            <a href="tel:+19497716441">Layah's Bridal Boutique · Huntington Beach · 949.771.6441</a>
+          </div>
+          <p class="moment-detail">
+            <em>The dress.</em> Take pictures. Take notes. Take your time.
+            Josh, this is the only moment of the trip where being five minutes early matters
+            &mdash; and probably the only time in your life you'll watch her try on a wedding dress.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the dress</span>
+            <span class="tag gold">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Drive back along the coast</h3>
+          <div class="moment-where">Huntington Beach → Santa Monica</div>
+          <p class="moment-detail">
+            Traffic should soften by now. You'll be back at the apartment around 7:15
+            with just enough time to change for dinner.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">7:45 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">The anniversary dinner ✦</h3>
+          <div class="moment-where">See the three options below &mdash; Felix recommended</div>
+          <p class="moment-detail">
+            Cobi's was the first pick but they're booked. The three options that follow are
+            <em>better, honestly.</em> Felix is the star &mdash; handmade pasta, Michelin Bib Gourmand,
+            and the right kind of warm-and-buzzy that an anniversary deserves.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the dinner</span>
+            <span class="tag gold">anniversary</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">10:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A walk on the beach by moonlight</h3>
+          <div class="moment-where">Wherever feels right</div>
+          <p class="moment-detail">
+            From Felix, it's a short drive (or a ten-dollar Uber) to the Venice or Santa Monica
+            sand. Take off your shoes. Don't talk about anything important.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== DINNER ALTERNATIVES ===== -->
+<section class="alternatives">
+  <div class="alternatives-inner">
+    <div class="alt-header">
+      <div class="alt-eyebrow">Saturday Night · Pick One</div>
+      <h2 class="alt-title">Where you eat</h2>
+      <p class="alt-sub">Cobi's was full &mdash; these three are arguably better</p>
+    </div>
+
+    <div class="alt-grid">
+
+      <div class="alt-card">
+        <div class="alt-rank top">★ Recommended</div>
+        <h3 class="alt-name">Felix Trattoria</h3>
+        <div class="alt-meta">Italian · $$$$ · 1023 Abbot Kinney</div>
+        <p class="alt-desc">
+          Michelin Bib Gourmand. Handmade pasta in the open kitchen, warm Italian villa
+          interior, the kind of place that earns the word <em>romantic</em>. Hard to book &mdash;
+          try OpenTable now, and also call.
+        </p>
+        <a href="tel:+14243878622" class="alt-cta">424.387.8622 →</a>
+      </div>
+
+      <div class="alt-card">
+        <div class="alt-rank">If Felix is full</div>
+        <h3 class="alt-name">Pasjoli</h3>
+        <div class="alt-meta">French · $$$$ · 2732 Main St</div>
+        <p class="alt-desc">
+          Michelin-starred French bistro, intimate and dark and moody &mdash; closest in feel to
+          what Cobi's would have been. Same Main Street block, three minutes from the apartment.
+          Get the steak frites with the <em>sauce au poivre</em>.
+        </p>
+        <a href="tel:+14243300020" class="alt-cta">424.330.0020 →</a>
+      </div>
+
+      <div class="alt-card">
+        <div class="alt-rank">Casual option</div>
+        <h3 class="alt-name">Forma</h3>
+        <div class="alt-meta">Italian · $$$ · 1610 Montana Ave</div>
+        <p class="alt-desc">
+          Five minutes from Euclid. Cheese-wheel pasta done tableside, a serious cheese
+          program, neighborhood-warm. Easier to book and easier to drive home from.
+        </p>
+        <a href="tel:+14242312868" class="alt-cta">424.231.2868 →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUNDAY ===== -->
+<section class="day sunday" id="sunday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day Three</div>
+        <h2 class="day-title">The <em>Slow Reset</em></h2>
+      </div>
+      <div class="day-date">Sunday<strong>24 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">8:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Lift at John Reed</h3>
+          <div class="moment-where">
+            <a href="tel:+14242315535">1202 3rd Street Promenade · 424.231.5535</a>
+          </div>
+          <p class="moment-detail">
+            Hannah's gym &mdash; call ahead Saturday to set up the free Sunday trial.
+            Walk-able from the apartment. Newer equipment than the Equinoxes around it.
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">strength</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">10:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Sauna and cold plunge at Likeminded</h3>
+          <div class="moment-where">116 Washington Blvd · Venice · book online</div>
+          <p class="moment-detail">
+            Outdoor sauna, multiple plunge temperatures, beautiful coffee bar. Hannah's
+            recommendation and the right one. <em>Book the 60-minute session before you
+            arrive in town.</em>
+          </p>
+          <div class="moment-tags">
+            <span class="tag">reset</span>
+            <span class="tag gold">wellness</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">12:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A beach blanket &amp; the big conversation <span class="heart">— before the wedding</span></h3>
+          <div class="moment-where">Annenberg Beach House · 415 PCH</div>
+          <p class="moment-detail">
+            Wide sand, quieter than the pier, room to spread out. Bring journals, water,
+            something to eat. <em>Six years together. What we love about us. What we want
+            from the wedding day. What we want from being married.</em> No phones for an hour.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the conversation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">3:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A long, lazy afternoon</h3>
+          <div class="moment-where">Apartment · Couch · Each other</div>
+          <p class="moment-detail">
+            Nap. Read. Pack the smaller things so Monday morning isn't a scramble.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">5:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Venice canals at golden hour</h3>
+          <div class="moment-where">Free · Park near Dell Ave</div>
+          <p class="moment-detail">
+            Hannah's strongest rec. Quiet bridges, lit-up bungalows, water reflecting
+            everything. Walk slowly. It'll take you forty-five minutes if you let it.
+          </p>
+          <div class="moment-tags">
+            <span class="tag gold">golden hour</span>
+            <span class="tag dream">romantic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Healthy dinner</h3>
+          <div class="moment-where">
+            <a href="tel:+13103952901">The Curious Palate · Santa Monica Place · 310.395.2901</a>
+          </div>
+          <p class="moment-detail">
+            Fresh California cooking, fair portions, nothing heavy. <em>Closes at 8pm &mdash;
+            don't dawdle.</em> Backup: Tender Greens on Arizona Ave.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">healthy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">8:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Frozen yogurt &amp; the last sunset</h3>
+          <div class="moment-where">Go Greek Yogurt · 1431 Ocean Ave</div>
+          <p class="moment-detail">
+            Greek-style tart yogurt with honey. Walk it along Palisades Park as the sky
+            finishes. <em>This is the last beat of the trip.</em>
+          </p>
+          <div class="moment-tags">
+            <span class="tag gold">finale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">9:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Home, pack, and sleep</h3>
+          <div class="moment-where">Wake at 4:30 AM Monday for the 7 AM flight</div>
+          <p class="moment-detail">
+            Set two alarms. Lay clothes out. Leave a thank-you note for Hannah on the counter.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CHECKLIST ===== -->
+<section class="checklist">
+  <div class="checklist-inner">
+    <div class="check-eyebrow">Before You Land</div>
+    <h2 class="check-title">Book these now</h2>
+
+    <ul class="check-list">
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          Saturday anniversary dinner <small>Felix, Pasjoli, or Forma</small>
+        </div>
+        <div class="check-phone">try <a href="tel:+14243878622">Felix</a> first</div>
+      </li>
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          Couples massage at Raven Spa <small>Saturday 1:00 PM · 60 min</small>
+        </div>
+        <div class="check-phone"><a href="tel:+13103994747">310.399.4747</a></div>
+      </li>
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          Likeminded sauna session <small>Sunday 10:00 AM · book at likemindedstudios.com</small>
+        </div>
+        <div class="check-phone">online</div>
+      </li>
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          John Reed free day pass <small>Sunday 8:00 AM · call Saturday to confirm</small>
+        </div>
+        <div class="check-phone"><a href="tel:+14242315535">424.231.5535</a></div>
+      </li>
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          Confirm Layah's 4:45 fitting <small>Saturday · Huntington Beach</small>
+        </div>
+        <div class="check-phone"><a href="tel:+19497716441">949.771.6441</a></div>
+      </li>
+      <li class="check-item" onclick="this.classList.toggle('done')">
+        <div class="check-box"></div>
+        <div class="check-text">
+          Rental car for LAX pickup <small>Friday 4:30 PM</small>
+        </div>
+        <div class="check-phone">your booking</div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== PRACTICAL ===== -->
+<section class="practical">
+  <div class="practical-inner">
+    <div class="alt-header" style="margin-bottom: 0;">
+      <div class="check-eyebrow">The Useful Bits</div>
+      <h2 class="check-title" style="margin-bottom: 1rem;">Logistics</h2>
+    </div>
+
+    <div class="practical-grid">
+
+      <div class="practical-card">
+        <div class="label">Home Base</div>
+        <h3>935 Euclid St, Apt 3</h3>
+        <p>Santa Monica, CA 90403<br>Third floor</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Wi-Fi</div>
+        <h3>LePlage2025</h3>
+        <p>Password:</p>
+        <div class="wifi">getthisgirlsomewifi:)</div>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Friday Inbound</div>
+        <h3>Delta 1715</h3>
+        <p>SFO 2:43 PM → LAX 4:15 PM<br>Delta Main Basic (E)</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Monday Outbound</div>
+        <h3>Delta 1421</h3>
+        <p>LAX 7:00 AM → SFO 8:21 AM<br>Leave for airport by 5:00 AM</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Sushi Order</div>
+        <h3>The Trust Me</h3>
+        <p>Add toro hand roll, salmon hand roll, salmon eggs.<br>Pickup, not delivery &mdash; faster.</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Comedy Picks</div>
+        <h3>Friday Night In</h3>
+        <p>John Mulaney <em>Baby J</em> · Nate Bargatze <em>Hello World</em> · Ali Wong <em>Single Lady</em></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENDING ===== -->
+<section class="ending">
+  <div class="ending-inner">
+    <div class="ending-mark">✦</div>
+    <h2>Six years in.<br>One wedding to go.<br>This weekend &mdash; just for you.</h2>
+    <p>
+      Three days at the edge of the country, between the long courtship and the rest of
+      your life. The flight is short, the weekend is shorter, and these days are the only
+      ones of their kind you'll get. Take the slow option whenever it shows up.
+    </p>
+    <div class="ending-sig">
+      To Mary &amp; Josh &mdash; almost newlyweds.
+      <small>Made with love</small>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.moment, .alt-card, .practical-card, .check-item, .letter p, .day-header');
+  reveals.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
