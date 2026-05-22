@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mary & J · Six Years · Santa Monica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5EDDF;
+    --cream-deep: #EFE4D0;
+    --ivory: #FAF6EE;
+    --wine: #4A1D2E;
+    --wine-deep: #2E1220;
+    --terracotta: #C95F3F;
+    --terracotta-light: #E08A6E;
+    --rose: #D8A39F;
+    --gold: #C99857;
+    --sage: #8B9B7E;
+    --ink: #2A1A22;
+    --paper: #F9F2E3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Paper grain texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.07;
+    mix-blend-mode: multiply;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    padding: 3rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(201, 152, 87, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(201, 95, 63, 0.12) 0%, transparent 50%),
+      var(--cream);
+    overflow: hidden;
+  }
+
+  .hero-corner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--wine);
+    opacity: 0.7;
+  }
+
+  .hero-corner .left, .hero-corner .right {
+    line-height: 1.8;
+  }
+  .hero-corner .right { text-align: right; }
+
+  .hero-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 2rem;
+    animation: fadeUp 1s ease-out 0.2s both;
+  }
+
+  .hero-tag::before, .hero-tag::after {
+    content: '✦';
+    margin: 0 1rem;
+    color: var(--gold);
+  }
+
+  .hero-names {
+    font-family: 'Italiana', serif;
+    font-size: clamp(3.5rem, 12vw, 9rem);
+    color: var(--wine);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    animation: fadeUp 1.2s ease-out 0.4s both;
+  }
+
+  .hero-names .amp {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+    font-size: 0.85em;
+    display: inline-block;
+    transform: translateY(-0.05em);
+    padding: 0 0.1em;
+  }
+
+  .hero-six {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--ink);
+    margin-top: 2rem;
+    letter-spacing: 0.02em;
+    animation: fadeUp 1.2s ease-out 0.7s both;
+  }
+
+  .hero-six em {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--wine);
+    border-bottom: 1px dotted var(--terracotta);
+    padding-bottom: 2px;
+  }
+
+  .hero-dates {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeUp 1.2s ease-out 0.9s both;
+  }
+
+  .hero-dates .dot {
+    width: 4px;
+    height: 4px;
+    background: var(--terracotta);
+    border-radius: 50%;
+  }
+
+  .hero-sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(400px, 70vw, 700px);
+    height: clamp(400px, 70vw, 700px);
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    animation: spin 80s linear infinite;
+  }
+  .hero-sun::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border: 1px solid var(--terracotta);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .hero-center > * { position: relative; z-index: 1; }
+
+  .scroll-cue {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--wine);
+    opacity: 0.5;
+    animation: bob 2.5s ease-in-out infinite;
+  }
+  .scroll-cue::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: var(--wine);
+    margin: 1rem auto 0;
+    opacity: 0.4;
+  }
+
+  /* ===== PERSONAL NOTE ===== */
+  .note {
+    padding: 7rem 2rem 5rem;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(216, 163, 159, 0.25) 0%, transparent 60%),
+      var(--paper);
+    position: relative;
+    text-align: center;
+  }
+
+  .note-inner {
+    max-width: 580px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .note-mark {
+    font-family: 'Italiana', serif;
+    color: var(--terracotta);
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+    letter-spacing: 0.5em;
+  }
+
+  .note-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 2.5rem;
+    opacity: 0.85;
+  }
+
+  .note-salutation {
+    font-family: 'Italiana', serif;
+    font-size: 2rem;
+    color: var(--wine);
+    margin-bottom: 2rem;
+    text-align: left;
+    letter-spacing: 0.01em;
+  }
+
+  .note-body {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 350;
+    font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+    line-height: 1.75;
+    color: var(--ink);
+    text-align: left;
+  }
+
+  .note-body p {
+    margin-bottom: 1.5rem;
+  }
+
+  .note-body p:last-of-type {
+    margin-bottom: 2rem;
+  }
+
+  .note-body strong {
+    font-weight: 500;
+    font-style: normal;
+    color: var(--wine);
+  }
+
+  .note-signoff {
+    margin-top: 2.5rem;
+    font-family: 'Italiana', serif;
+    color: var(--terracotta);
+    font-size: 2rem;
+    text-align: left;
+    letter-spacing: 0.01em;
+  }
+
+  .note-signoff small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-top: 1rem;
+    opacity: 0.55;
+  }
+
+  @media (max-width: 720px) {
+    .note { padding: 5rem 1.5rem 3.5rem; }
+    .note-body { font-size: 1.1rem; }
+  }
+
+  /* ===== LOVE LETTER INTRO ===== */
+  .letter {
+    padding: 8rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .letter-mark {
+    font-family: 'Italiana', serif;
+    color: var(--terracotta);
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .letter p {
+    font-family: 'Fraunces', serif;
+    font-weight: 350;
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  .letter p em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  .letter-sign {
+    margin-top: 3rem;
+    font-family: 'Italiana', serif;
+    color: var(--wine);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .letter-sign small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-top: 0.5rem;
+  }
+
+  /* ===== DAY SECTIONS ===== */
+  .day {
+    padding: 6rem 2rem;
+    position: relative;
+  }
+  .day.friday   { background: linear-gradient(180deg, var(--cream) 0%, #F0E0CC 100%); }
+  .day.saturday { background: linear-gradient(180deg, #F0E0CC 0%, var(--cream-deep) 100%); }
+  .day.sunday   { background: linear-gradient(180deg, var(--cream-deep) 0%, var(--paper) 100%); }
+
+  .day-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .day-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(74, 29, 46, 0.15);
+    margin-bottom: 4rem;
+  }
+
+  .day-number {
+    font-family: 'Italiana', serif;
+    font-size: clamp(5rem, 12vw, 9rem);
+    color: var(--terracotta);
+    line-height: 0.85;
+    opacity: 0.85;
+  }
+
+  .day-title-wrap {
+    flex: 1;
+  }
+
+  .day-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.5rem;
+  }
+
+  .day-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--wine);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .day-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+
+  .day-date {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--wine);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .day-date strong {
+    display: block;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 0;
+  }
+
+  .moment {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 2.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px dashed rgba(74, 29, 46, 0.12);
+    transition: background 0.4s ease;
+  }
+  .moment:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+  .moment:last-child { border-bottom: none; }
+
+  .moment-time {
+    font-family: 'Italiana', serif;
+    font-size: 1.6rem;
+    color: var(--wine);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    padding-top: 0.2rem;
+  }
+  .moment-time small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-top: 0.3rem;
+    font-weight: 600;
+  }
+
+  .moment-body { padding-top: 0.15rem; }
+
+  .moment-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--wine);
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+  .moment-headline .heart {
+    color: var(--terracotta);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .moment-where {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+  }
+  .moment-where a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .moment-where a:hover { border-color: var(--terracotta); }
+
+  .moment-detail {
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    line-height: 1.6;
+    opacity: 0.88;
+  }
+
+  .moment-detail em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  .moment-tags {
+    margin-top: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(74, 29, 46, 0.25);
+    border-radius: 999px;
+    color: var(--wine);
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .tag.hot { background: var(--terracotta); color: var(--cream); border-color: var(--terracotta); }
+  .tag.dream { background: var(--wine); color: var(--cream); border-color: var(--wine); }
+  .tag.gold { background: var(--gold); color: var(--wine); border-color: var(--gold); }
+
+  /* Special anniversary highlight */
+  .moment.highlight {
+    background: linear-gradient(135deg, rgba(201, 95, 63, 0.08), rgba(201, 152, 87, 0.05));
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    margin: 1rem -1.5rem;
+    border: 1px solid rgba(201, 95, 63, 0.15);
+  }
+  .moment.highlight::before {
+    content: '✦';
+    position: absolute;
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ===== DINNER ALTERNATIVES ===== */
+  .alternatives {
+    background: var(--wine);
+    color: var(--cream);
+    padding: 5rem 2rem;
+    position: relative;
+  }
+
+  .alternatives-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .alt-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .alt-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .alt-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cream);
+  }
+  .alt-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--rose);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .alt-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-top: 3rem;
+  }
+
+  .alt-path-label {
+    text-align: center;
+    font-family: 'Italiana', serif;
+    color: var(--gold);
+    font-size: 1.6rem;
+    margin: 3.5rem 0 0.5rem;
+    letter-spacing: 0.02em;
+  }
+  .alt-path-label:first-child { margin-top: 1.5rem; }
+  .alt-path-label small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 0.4rem;
+    font-weight: 600;
+  }
+
+  .alt-card {
+    background: rgba(245, 237, 223, 0.06);
+    border: 1px solid rgba(245, 237, 223, 0.2);
+    padding: 2rem 1.8rem;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.4s ease, background 0.4s ease;
+  }
+  .alt-card:hover {
+    transform: translateY(-4px);
+    background: rgba(245, 237, 223, 0.1);
+  }
+
+  .alt-rank {
+    position: absolute;
+    top: -12px;
+    left: 1.5rem;
+    background: var(--terracotta);
+    color: var(--cream);
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .alt-rank.top { background: var(--gold); color: var(--wine); }
+
+  .alt-name {
+    font-family: 'Italiana', serif;
+    font-size: 1.8rem;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+    margin-top: 0.5rem;
+  }
+  .alt-meta {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 1rem;
+  }
+  .alt-desc {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    color: var(--cream);
+    opacity: 0.85;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+  .alt-cta {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  .alt-cta:hover { color: var(--terracotta-light); border-color: var(--terracotta-light); }
+
+  /* ===== CHECKLIST ===== */
+  .checklist {
+    padding: 6rem 2rem;
+    background: var(--paper);
+  }
+  .checklist-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .check-eyebrow {
+    text-align: center;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+  .check-title {
+    text-align: center;
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--wine);
+    margin-bottom: 3rem;
+  }
+
+  .check-list {
+    list-style: none;
+  }
+  .check-item {
+    display: grid;
+    grid-template-columns: 50px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.4rem 1.2rem;
+    border-bottom: 1px solid rgba(74, 29, 46, 0.1);
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .check-item:hover { background: rgba(201, 95, 63, 0.05); }
+
+  .check-box {
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--wine);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    background: transparent;
+  }
+  .check-item.done .check-box {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+  .check-item.done .check-box::after {
+    content: '✓';
+    color: var(--cream);
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  .check-item.done .check-text { text-decoration: line-through; opacity: 0.5; }
+
+  .check-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--ink);
+    transition: opacity 0.3s;
+  }
+  .check-text small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    color: var(--terracotta);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+  .check-phone {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.85rem;
+    color: var(--wine);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .check-phone a {
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--terracotta);
+  }
+
+  /* ===== PRACTICAL CARDS ===== */
+  .practical {
+    padding: 6rem 2rem;
+    background: var(--cream);
+  }
+  .practical-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .practical-card {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(74, 29, 46, 0.12);
+    padding: 1.8rem;
+    border-radius: 6px;
+  }
+  .practical-card h3 {
+    font-family: 'Italiana', serif;
+    font-size: 1.4rem;
+    color: var(--wine);
+    margin-bottom: 0.8rem;
+  }
+  .practical-card .label {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .practical-card p {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .practical-card .wifi {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--wine);
+    background: rgba(201, 95, 63, 0.08);
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    display: inline-block;
+    font-size: 0.9rem;
+  }
+
+  /* ===== QUESTIONS SECTION ===== */
+  .questions {
+    padding: 7rem 2rem;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(216, 163, 159, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 70%, rgba(201, 152, 87, 0.12) 0%, transparent 55%),
+      var(--paper);
+    position: relative;
+  }
+  .questions-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .questions-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .questions-eyebrow {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 1rem;
+  }
+  .questions-title {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    color: var(--wine);
+    line-height: 1;
+  }
+  .questions-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terracotta);
+  }
+  .questions-sub {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .q-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .q-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(74, 29, 46, 0.12);
+    padding: 2.5rem 2rem;
+    border-radius: 6px;
+    position: relative;
+    backdrop-filter: blur(8px);
+  }
+
+  .q-card-label {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .q-card-title {
+    font-family: 'Italiana', serif;
+    font-size: 1.9rem;
+    color: var(--wine);
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+
+  .q-card-when {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    font-size: 0.95rem;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed rgba(74, 29, 46, 0.15);
+  }
+
+  .q-list {
+    list-style: none;
+    counter-reset: q-counter;
+  }
+
+  .q-item {
+    counter-increment: q-counter;
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    align-items: baseline;
+    border-bottom: 1px dotted rgba(74, 29, 46, 0.1);
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  .q-item::before {
+    content: counter(q-counter, decimal-leading-zero);
+    font-family: 'Italiana', serif;
+    color: var(--terracotta);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .q-item span {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .q-item span em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  @media (max-width: 720px) {
+    .q-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .q-card { padding: 2rem 1.5rem; }
+    .questions { padding: 5rem 1.5rem; }
+  }
+
+  /* ===== AMAZON ORDER ===== */
+  .amazon {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, var(--paper) 0%, var(--cream-deep) 100%);
+  }
+  .amazon-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .amazon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem 2rem;
+    margin-top: 2rem;
+  }
+  .amazon-item {
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(74, 29, 46, 0.1);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .amazon-item:hover { background: rgba(255, 255, 255, 0.85); }
+  .amazon-item.done .check-text-am { text-decoration: line-through; opacity: 0.45; }
+  .amazon-item.done .check-box-am {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+  .amazon-item.done .check-box-am::after {
+    content: '✓';
+    color: var(--cream);
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  .check-box-am {
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid var(--wine);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  .check-text-am {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .check-text-am small {
+    display: block;
+    color: var(--terracotta);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+  .amazon-link {
+    font-family: 'Karla', sans-serif;
+    font-size: 0.7rem;
+    color: var(--terracotta);
+    text-decoration: none;
+    border: 1px solid var(--terracotta);
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .amazon-link:hover {
+    background: var(--terracotta);
+    color: var(--cream);
+  }
+
+  /* ===== PACKING LIST ===== */
+  .packing {
+    padding: 6rem 2rem;
+    background: var(--cream);
+  }
+  .packing-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .pack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .pack-category h3 {
+    font-family: 'Italiana', serif;
+    font-size: 1.4rem;
+    color: var(--wine);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(201, 95, 63, 0.3);
+  }
+  .pack-category h3 small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+  }
+  .pack-list { list-style: none; }
+  .pack-li {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 0.7rem;
+    align-items: center;
+    padding: 0.45rem 0;
+    cursor: pointer;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink);
+    transition: opacity 0.3s;
+  }
+  .pack-li:hover { color: var(--terracotta); }
+  .pack-li .pack-box {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--wine);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+  }
+  .pack-li.done {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+  .pack-li.done .pack-box {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+  }
+  .pack-li.done .pack-box::after {
+    content: '✓';
+    color: var(--cream);
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+  .pack-li em {
+    font-style: italic;
+    color: var(--wine);
+    opacity: 0.7;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 720px) {
+    .amazon-grid { grid-template-columns: 1fr; }
+    .amazon-item { grid-template-columns: 24px 1fr; gap: 0.7rem; }
+    .amazon-link { grid-column: 2; justify-self: start; margin-top: 0.3rem; }
+    .pack-grid { gap: 1.5rem; }
+    .amazon, .packing { padding: 4rem 1.5rem; }
+  }
+
+  /* ===== FOOTER ===== */
+  .ending {
+    padding: 8rem 2rem 4rem;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--wine-deep) 100%);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+  }
+  .ending-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .ending-mark {
+    font-family: 'Italiana', serif;
+    color: var(--gold);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+  .ending h2 {
+    font-family: 'Italiana', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  .ending p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: var(--rose);
+    line-height: 1.7;
+  }
+  .ending-sig {
+    margin-top: 3rem;
+    font-family: 'Italiana', serif;
+    color: var(--gold);
+    font-size: 1.3rem;
+  }
+  .ending-sig small {
+    display: block;
+    font-family: 'Karla', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-top: 0.5rem;
+    opacity: 0.7;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(6px); opacity: 0.8; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 720px) {
+    .hero { padding: 2rem 1.5rem 3rem; }
+    .hero-corner { flex-direction: column; gap: 1rem; }
+    .hero-corner .right { text-align: left; }
+
+    .letter { padding: 5rem 1.5rem; }
+
+    .day { padding: 4rem 1.5rem; }
+    .day-header {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+      text-align: left;
+    }
+    .day-date { text-align: left; }
+
+    .moment {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 1.4rem 0;
+    }
+    .moment-time {
+      font-size: 1.3rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+    }
+    .moment-time small { margin-top: 0; }
+
+    .moment.highlight { margin: 1rem 0; padding: 1.5rem 1rem; }
+
+    .alt-grid { grid-template-columns: 1fr; }
+
+    .check-item {
+      grid-template-columns: 36px 1fr;
+      gap: 1rem;
+    }
+    .check-phone {
+      grid-column: 2;
+      font-size: 0.8rem;
+    }
+
+    .practical { padding: 4rem 1.5rem; }
+  }
+
+  /* Print */
+  @media print {
+    body::before, .hero-sun { display: none; }
+    .day, .alternatives, .checklist, .practical, .ending {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-corner">
+    <div class="left">
+      An Anniversary<br>
+      Weekend Itinerary
+    </div>
+    <div class="right">
+      No. VI<br>
+      Santa Monica
+    </div>
+  </div>
+
+  <div class="hero-center">
+    <div class="hero-sun"></div>
+    <div class="hero-tag">Six and a Half Years</div>
+    <h1 class="hero-names">Mary<br><span class="amp">&</span><br>Josh</h1>
+    <p class="hero-six">
+      J, I love you so much I could explode... literally pop.<br>
+      Two thousand three hundred seventy-four days and somehow every day I love you more than the last. I can't believe we're at one hundred days till I get to marry the love of my life.<br>
+      <em>I literally cannot wait for the weekend. Three days, just us, me and my favorite human.</em>
+    </p>
+    <div class="hero-dates">
+      <span>May 22</span>
+      <span class="dot"></span>
+      <span>May 23</span>
+      <span class="dot"></span>
+      <span>May 24</span>
+      <span class="dot"></span>
+      <span>2026</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue">Begin</div>
+</section>
+
+<!-- ===== PERSONAL NOTE ===== -->
+<section class="note">
+  <div class="note-inner">
+    <div class="note-eyebrow">A note for you · before the plan</div>
+
+    <div class="note-salutation">J,</div>
+
+    <div class="note-body">
+      <p>
+        I hope you know how much you mean to me. I also know it's literally not
+        possible. You are truly my perfect partner. And when I say that, I don't
+        mean you're perfect. I mean together I feel like we are the best versions
+        of each other. We push each other to be better. We support each other when we
+        need it. We hold each other accountable. <strong>We're always growing together.</strong>
+      </p>
+      <p>
+        That's something I really want to do this weekend: be curious about each other,
+        learn what's changing as we go through such an incredible, and intense,
+        moment in our life. Hold on to the curiosity and love and beauty that
+        is so centered in our relationship. From Switzerland to Chicago to Boston to
+        Kigali to SF, every move and every time zone, I'd do it all over again.
+        <em>Even the ankle.</em>
+      </p>
+      <p>
+        I cannot wait to marry you in September. Until then, let's enjoy every moment
+        of this weekend. I love being with you. I'm a better me with you. And I'd like
+        to think you're a better you with me. I love you so much.
+      </p>
+      <p>
+        I hope you feel the love, admiration, and joy I have for you, in the little
+        moments and the big ones. <strong>You're my person through it all.</strong>
+      </p>
+      <p>
+        I hope we never stop growing with each other, learning with each other,
+        not just supporting each other but supporting us. I hope we're the type of
+        parents who have date night every week. Not because we're not busy, but because
+        we're so in love with each other we want to learn how the other changed in the
+        past week.
+      </p>
+      <p>
+        I love how much you love me. I love how much you support me. I love that every
+        time I ask if you love me, you say <em>so much</em>. You fill me up. You
+        make me want to be the best version of myself, for you, for us,
+        and for me.
+      </p>
+    </div>
+
+    <div class="note-signoff">
+      I love you.<br>
+      Yours always, M
+      <small>For all the days along the way</small>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOVE LETTER INTRO ===== -->
+<section class="letter">
+  <div class="letter-mark">·</div>
+  <p>
+    A long weekend in Santa Monica. Hanna's car, a borrowed apartment on Euclid Street, a
+    half marathon along the strand. The same way you met. Brunch on Abbot
+    Kinney, the wedding dress fitting in Huntington Beach, anniversary dinner at Alisa,
+    sauna and cold plunge on Sunday morning, the Venice canals at golden hour.
+  </p>
+  <p>
+    Six and a half years since we started dating in January 2020. The wedding is in
+    Charlottesville on <em>September 6</em>. A lil over 100 days from this weekend.
+    This weekend is the breath between.
+  </p>
+  <div class="letter-sign">
+    For Mary &amp; J<br>
+    <small>Three days · Twelve questions · One dress fitting</small>
+  </div>
+</section>
+
+<!-- ===== FRIDAY ===== -->
+<section class="day friday" id="friday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day One</div>
+        <h2 class="day-title">The <em>Arrival</em></h2>
+      </div>
+      <div class="day-date">Friday<strong>22 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">4:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Wheels down at LAX</h3>
+          <div class="moment-where">Delta 1715 · SFO → LAX</div>
+          <p class="moment-detail">
+            Uber to UCLA Santa Monica Medical Center (~30 min) to pick up Hanna's car.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">5:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Pick up Hanna's car</h3>
+          <div class="moment-where">1323 16th St Garage · UCLA Santa Monica Medical Center</div>
+          <p class="moment-detail">
+            <em>First floor, right around the corner when you turn left.</em>
+            Apartment is a 3-minute drive from here.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">5:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Settle into Euclid Street</h3>
+          <div class="moment-where">935 Euclid St, Apt 3 · Santa Monica · third floor</div>
+          <p class="moment-detail">
+            Wi-Fi network: <em>LePlage2025</em><br>
+            Wi-Fi password: <em>getthisgirlsomewifi:)</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Four-mile shake-out run <span class="heart">· beachside</span></h3>
+          <div class="moment-where">Santa Monica Pier → Venice → Back</div>
+          <p class="moment-detail">
+            Easy pace. Sunset is 7:50 PM.
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">shake-out</span>
+            <span class="tag gold">golden hour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">7:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Quick shower &amp; change</h3>
+          <div class="moment-where">Apartment</div>
+          <p class="moment-detail">
+            Wear cozys, walkin to dinner.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">7:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Walk out for wine</h3>
+          <div class="moment-where">Apartment → wine shop of your choice on the way downtown</div>
+          <p class="moment-detail">
+            Grab a bottle on the way to Sugarfish.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">7:50 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Sugarfish pickup</h3>
+          <div class="moment-where">
+            <a href="tel:+13103933338">Sugarfish · 1345 2nd St · 310.393.3338</a>
+          </div>
+          <p class="moment-detail">
+            Call ahead for 7:50 pickup. <em>Trust Me</em> set for two, plus a toro
+            hand roll, a salmon hand roll, and salmon eggs.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">cozy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">8:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Walk home with the wine and the sushi</h3>
+          <div class="moment-where">2nd St → Euclid St · 20 min walk back</div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">8:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Sushi, wine, comedy on the laptop</h3>
+          <div class="moment-where">Home · couch · laptop</div>
+          <p class="moment-detail">
+            Three Netflix/Prime picks for tonight: <em>John Mulaney: Baby J</em> (Netflix),
+            <em>Nate Bargatze: Hello World</em> (Prime), or <em>Ali Wong: Single Lady</em>
+            (Netflix).
+          </p>
+          <div class="moment-tags">
+            <span class="tag">nest</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">10:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Lights out</h3>
+          <div class="moment-where">Bed, side by side</div>
+          <p class="moment-detail">
+            Half marathon at 7:30 AM.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SATURDAY ===== -->
+<section class="day saturday" id="saturday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day Two</div>
+        <h2 class="day-title">The <em>Main Event</em></h2>
+      </div>
+      <div class="day-date">Saturday<strong>23 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">7:30 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Half marathon on the strand</h3>
+          <div class="moment-where">SM Pier → south along the beach path → back</div>
+          <p class="moment-detail">
+            13.1 miles, side by side. Head south past Venice and Marina del Rey,
+            turn around when your watch says 6.55. Sunrise is well behind us by now,
+            so it'll be sunny and warm. Bring gels and water.
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">half marathon</span>
+            <span class="tag gold">13.1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">9:30 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Home, quick rinse, change</h3>
+          <div class="moment-where">935 Euclid St · Apt 3</div>
+          <p class="moment-detail">
+            Just enough to feel human again.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">10:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">7-Eleven pit stop <span class="heart">· on the drive to the cold plunge</span></h3>
+          <div class="moment-where">Any 7-Eleven on the way · Gatorade, banana, snacks</div>
+          <p class="moment-detail">
+            Grab whatever you need to hold you over till brunch.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">10:30 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Cold plunge &amp; hot tub <span class="heart">· thirty minutes, side by side</span></h3>
+          <div class="moment-where">Likeminded · 116 Washington Blvd, Venice · book online</div>
+          <p class="moment-detail">
+            Outdoor sauna, cold plunges at a few temperatures, a beautiful coffee bar
+            if you want one after. Thirty-minute session together, the perfect reset
+            after the half. Hidden gem of Venice wellness.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">reset</span>
+            <span class="tag gold">recovery</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">11:30 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Brunch <span class="heart">· the well-earned one</span></h3>
+          <div class="moment-where">
+            <a href="tel:+13109813004">The Butcher's Daughter · 1205 Abbot Kinney · 310.981.3004</a>
+          </div>
+          <p class="moment-detail">
+            Plant-filled, slow-paced, a few blocks from where you just plunged.
+            The lemon waffles are the move. Also: avocado toast, eggs however you
+            want, an OJ, a matcha.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">brunch</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">1:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Coffee &amp; wedding planning <span class="heart">· side by side</span></h3>
+          <div class="moment-where">
+            Intelligentsia Coffee · 1331 Abbot Kinney <em>(short walk from brunch)</em>
+          </div>
+          <p class="moment-detail">
+            Industrial-chic, high ceilings, lots of indoor seating, built for
+            spreading out a notebook. Almond-milk lattes. The wedding-planning
+            question cards are below.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">your wedding</span>
+            <span class="tag gold">the planning hour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">2:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Drive to Huntington Beach <span class="heart">· build the wedding playlist together</span></h3>
+          <div class="moment-where">Abbot Kinney → HB · ~90 minutes</div>
+          <p class="moment-detail">
+            Have the dress fitting kit already in the car from this morning, so
+            no need to swing back to the apartment. The drive is the playlist:
+            trade songs back and forth, argue about the first dance, sing badly,
+            hold hands at the lights.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the playlist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">4:45 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Wedding dress fitting ✦</h3>
+          <div class="moment-where">
+            <a href="tel:+19497716441">Layah's Bridal Boutique · Huntington Beach · 949.771.6441</a>
+          </div>
+          <p class="moment-detail">
+            Take pictures. Take notes on what does and doesn't work. Alterations
+            list, accessories to source, undergarments needed. Reviews on this place are
+            unanimous: <em>they make you feel like the only bride in the building.</em>
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the dress</span>
+            <span class="tag gold">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Drive back from HB <span class="heart">· optional snack stop</span></h3>
+          <div class="moment-where">HB → Santa Monica · ~75 min straight back</div>
+          <p class="moment-detail">
+            If you're hungry, grab a quick bite or drink somewhere on the route.
+            anywhere around Long Beach, Manhattan Beach, or El Segundo works. Otherwise
+            push straight through and snack at home before dinner.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">7:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Back at the apartment. Change for dinner</h3>
+          <div class="moment-where">935 Euclid St</div>
+          <p class="moment-detail">
+            Freshen up, change into something nice. Alisa is in Venice on Abbot Kinney
+           . It's about a 15-min drive or you can Uber.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">8:15 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Anniversary dinner at Alisa ✦ <span class="heart">· reservation confirmed</span></h3>
+          <div class="moment-where">
+            <a href="tel:+14243785003">Alisa wine &amp; friends · 1009 Abbot Kinney Blvd, Venice · 424.378.5003</a>
+          </div>
+          <p class="moment-detail">
+            Elevated Greek-Mediterranean on Abbot Kinney, cozy patio, sake margaritas
+            and sake espresso martinis to start. Order to share: <em>spicy feta</em>,
+            <em>wagyu skewers</em>, hummus, grilled potatoes with Greek yogurt,
+            the tomato salad. Then a main each. Linger.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the dinner</span>
+            <span class="tag gold">anniversary</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">10:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Drive home &amp; a walk on the beach if you're up for it</h3>
+          <div class="moment-where">Venice → Euclid St · 15 min</div>
+          <p class="moment-detail">
+            Alisa to apartment is a short drive. If anyone's still standing,
+            shoes off in the sand for ten minutes before bed.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUNDAY ===== -->
+<section class="day sunday" id="sunday">
+  <div class="day-inner">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-title-wrap">
+        <div class="day-eyebrow">Day Three</div>
+        <h2 class="day-title">The <em>Slow Reset</em></h2>
+      </div>
+      <div class="day-date">Sunday<strong>24 May</strong></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="moment">
+        <div class="moment-time">8:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Lift at John Reed <span class="heart">· day pass</span></h3>
+          <div class="moment-where">
+            <a href="tel:+14242315535">1202 3rd Street Promenade · 424.231.5535</a>
+          </div>
+          <p class="moment-detail">
+            Day pass at the door.
+          </p>
+          <div class="moment-tags">
+            <span class="tag hot">strength</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">9:30 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Walk to Tikkun</h3>
+          <div class="moment-where">3rd St → 4th St · 5 min</div>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">10:00 <small>AM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Tikkun together <span class="heart">· Mary's deep tissue at 10:45</span></h3>
+          <div class="moment-where">
+            <a href="tel:+13103191111">Tikkun Holistic Spa · 460 4th St · 310.319.1111</a>
+          </div>
+          <p class="moment-detail">
+            Press <em>#100</em> to buzz in, B level.<br><br>
+            <em>10:00–10:45 AM together:</em> infrared salt room, clay room, cool room.<br><br>
+            <em>10:45 AM. Mary's deep tissue massage</em>, ~60 min. They specialize
+            in chronic-tension relief: neck, lower back, shoulders, legs.<br><br>
+            <em>While Mary is in treatment, J:</em> separate steam, dry sauna, hot
+            tub (split by gender). Float between them. Hydrate.<br><br>
+            <em>After:</em> meet back in the shared rooms, hang as long as you want
+            before lunch.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">reset</span>
+            <span class="tag gold">Mary's day</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment highlight">
+        <div class="moment-time">12:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A beach blanket &amp; the big conversation <span class="heart">· about us</span></h3>
+          <div class="moment-where">Annenberg Beach House · 415 PCH</div>
+          <p class="moment-detail">
+            Wide sand, quieter than the pier, room to spread out. The question cards
+            are below. Take turns. No timeline, no phones.
+          </p>
+          <div class="moment-tags">
+            <span class="tag dream">the conversation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">3:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">A long, lazy afternoon</h3>
+          <div class="moment-where">Apartment · Couch · Each other</div>
+          <p class="moment-detail">
+            Nap. Read. Pack the smaller things so Monday morning isn't a scramble.
+          </p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">5:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Venice canals at golden hour</h3>
+          <div class="moment-where">Free · Park near Dell Ave</div>
+          <p class="moment-detail">
+            One of the prettiest walks in LA. Narrow bridges, bungalows, calm water.
+            Walk it slowly. 45 minutes if you go the long way.
+          </p>
+          <div class="moment-tags">
+            <span class="tag gold">golden hour</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">6:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Healthy dinner</h3>
+          <div class="moment-where">
+            <a href="tel:+13103952901">The Curious Palate · Santa Monica Place · 310.395.2901</a>
+          </div>
+          <p class="moment-detail">
+            Fresh California cooking, fair portions, nothing heavy.
+            Closes at 8 PM.
+          </p>
+          <div class="moment-tags">
+            <span class="tag">healthy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">8:00 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Frozen yogurt &amp; last sunset</h3>
+          <div class="moment-where">Go Greek Yogurt · 1431 Ocean Ave</div>
+          <p class="moment-detail">
+            Greek-style tart with honey. Walk Palisades Park as the sky finishes.
+          </p>
+          <div class="moment-tags">
+            <span class="tag gold">finale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-time">9:30 <small>PM</small></div>
+        <div class="moment-body">
+          <h3 class="moment-headline">Home, pack, sleep</h3>
+          <div class="moment-where">4:30 AM Monday alarm for the 7 AM flight</div>
+          <p class="moment-detail">
+            Set two alarms. Lay clothes out for the airport. Leave a thank-you
+            note on the counter. <em>Monday morning</em>: drive Hanna's car back
+            to 1323 16th St Garage (first floor, where you found it), then Uber
+            to LAX from there. Build in 90 min before the flight.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUESTIONS ===== -->
+<section class="questions">
+  <div class="questions-inner">
+    <div class="questions-header">
+      <div class="questions-eyebrow">For the coffee shop &amp; the beach blanket</div>
+      <h2 class="questions-title">Twelve <em>real</em> questions</h2>
+      <p class="questions-sub">
+        Six about the years behind you, six about the years ahead. Take turns answering.
+        Don't rush. The good ones are harder than they look.
+      </p>
+    </div>
+
+    <div class="q-grid">
+
+      <div class="q-card">
+        <div class="q-card-label">Part One</div>
+        <h3 class="q-card-title">About what's been</h3>
+        <p class="q-card-when">For Intelligentsia Coffee · Saturday</p>
+        <ol class="q-list">
+          <li class="q-item"><span>Of the places we've lived. Charlottesville, Boston, Redwood City, the frat house in lockdown, Kigali on rotation. Which version of us would you go back to for a week, and what was it about that version?</span></li>
+          <li class="q-item"><span>When did <em>we</em> stop feeling like two people and start feeling like one thing? Was there a moment, or did you just look up one day and notice?</span></li>
+          <li class="q-item"><span>What's something I do that you used to find hard about me. And now find easy, or even love?</span></li>
+          <li class="q-item"><span>What's one of my fears you can see clearly, that I can't see in myself?</span></li>
+          <li class="q-item"><span>What's a small thing I've done that you don't think I know affected you?</span></li>
+          <li class="q-item"><span>If you could send a single sentence back to first-year-us at UVA, what would it say?</span></li>
+        </ol>
+      </div>
+
+      <div class="q-card">
+        <div class="q-card-label">Part Two</div>
+        <h3 class="q-card-title">About what's next</h3>
+        <p class="q-card-when">For the beach blanket · Sunday</p>
+        <ol class="q-list">
+          <li class="q-item"><span>Picture us five years out. What's a version you're <em>a little afraid of</em>? And one you're genuinely excited about?</span></li>
+          <li class="q-item"><span>What's something you've been quietly hoping I'd notice you wanted me to ask you about? Ask it now.</span></li>
+          <li class="q-item"><span>What's our pattern in a fight that doesn't serve us. And what would replace it? Be specific.</span></li>
+          <li class="q-item"><span>Name one thing we keep deferring that we should decide before September 6.</span></li>
+          <li class="q-item"><span>What's a tradition you want to start in our first year of marriage that you'd still want at fifty?</span></li>
+          <li class="q-item"><span>On a normal Wednesday in year ten, what does our marriage <em>feel like</em>? Not look like. Feel like.</span></li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRACTICAL ===== -->
+<section class="practical">
+  <div class="practical-inner">
+    <div class="alt-header" style="margin-bottom: 0;">
+      <div class="check-eyebrow">The Useful Bits</div>
+      <h2 class="check-title" style="margin-bottom: 1rem;">Logistics</h2>
+    </div>
+
+    <div class="practical-grid">
+
+      <div class="practical-card">
+        <div class="label">Home Base</div>
+        <h3>935 Euclid St, Apt 3</h3>
+        <p>Santa Monica, CA 90403<br>Third floor</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Wi-Fi</div>
+        <h3>LePlage2025</h3>
+        <p>Password:</p>
+        <div class="wifi">getthisgirlsomewifi:)</div>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Hanna's Car</div>
+        <h3>1323 16th St Garage</h3>
+        <p>UCLA Santa Monica Medical Center.<br>First floor, around the corner when you turn left.</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Friday Inbound</div>
+        <h3>Delta 1715</h3>
+        <p>SFO 2:43 PM → LAX 4:15 PM<br>Delta Main Basic (E)</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Monday Outbound</div>
+        <h3>Delta 1421</h3>
+        <p>LAX 7:00 AM → SFO 8:21 AM<br>Leave for airport by 5:00 AM</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Sushi Order</div>
+        <h3>The Trust Me</h3>
+        <p>Add toro hand roll, salmon hand roll, salmon eggs.<br>Pickup at 7:50 PM, not delivery.</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Friday Night Lineup</div>
+        <h3>Order on the drive in</h3>
+        <p>Sugarfish (call ahead) · Wine from K&amp;L or Wine Expo</p>
+      </div>
+
+      <div class="practical-card">
+        <div class="label">Comedy Picks</div>
+        <h3>Friday Night In</h3>
+        <p>John Mulaney <em>Baby J</em> · Nate Bargatze <em>Hello World</em> · Ali Wong <em>Single Lady</em></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== ENDING ===== -->
+<section class="ending">
+  <div class="ending-inner">
+    <div class="ending-mark">✦</div>
+    <h2>Two thousand three hundred seventy-four days behind us.<br>One hundred days till our wedding.<br>Three days right now.</h2>
+    <p>
+      J. I love this life. I love how we built it. I love that the next chapter
+      starts in <em>September</em>. I love that when I ask if you love me, you
+      say <em>so much</em>. I love being on your team. I love that we are the team.
+    </p>
+    <div class="ending-sig">
+      I cannot wait to marry you.
+      <small>Mary</small>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.moment, .alt-card, .practical-card, .check-item, .letter p, .day-header, .q-card, .amazon-item, .pack-category');
+  reveals.forEach(el => el.classList.add('reveal'));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
